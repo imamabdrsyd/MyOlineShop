@@ -1,7 +1,7 @@
 
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>My Online Shop</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -23,7 +23,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="${pageContext.request.contextPath}/">Home</a></li>
-        <li><a href="#">Product</a></li>
+        <li><a href="product/all">Product</a></li>
         <li><a href="#">Costumer</a></li>
       </ul>
         <form class="navbar-form navbar-left" action="/action_page.php">

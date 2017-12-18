@@ -8,9 +8,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <jsp:include page="navbar.jsp"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Product Page</title>
     </head>
+    <jsp:include page="navbar.jsp"/>
     <body>
         <h1>${product.productNama}</h1>
         <p>

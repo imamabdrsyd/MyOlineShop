@@ -24,6 +24,7 @@
                 <p class="card-text">To The Biggest Shopping Network</p>
                 <a href="register" class="btn btn-primary">Register</a>
                 <a href="product/all" class="btn btn-primary">Product</a>
+                <b></b>
                 <a href="${pageContext.request.contextPath}/login" class="btn btn-danger">Login</a>
             </div>
         </div>

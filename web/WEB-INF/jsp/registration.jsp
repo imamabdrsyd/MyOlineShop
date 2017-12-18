@@ -12,13 +12,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
         <link href="<c:url value='/resources/css/bootstrap.css'/>" rel="stylesheet">
         <script src="<c:url value='/resources/js/bootstraps.js'/>"  ></script>
-        <title>Form Registration </title>
+        <title>Form Registrasi </title>
     </head>
     <body>
 
         <div align="center">  
             <legend>
-                <h1>Form Registration</h1>
+                <h1>Registration Form</h1>
             </legend>    
         </div>
         <div class="container col-sm-4" style="padding: 40px;">
