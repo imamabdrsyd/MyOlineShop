@@ -30,17 +30,20 @@ public class OrderController {
     Cart cart = new Cart();
     int no = 1;
     double totalHargaDalamCart;
+    int key=0;
 
     @RequestMapping(value = "/add/{productID}")
     public String addCart(@PathVariable Integer productID, Model model, HttpSession session) {
 
         try {
             Tblproduct prod = ps.findById(productID);
+            double tot ;
             if (prod == null) {
                 model.addAttribute("errMsg", "Belom ada barang yg dipilih");
                 return "tblproduct";
             }
-            cart.getCarts().put(no++, prod);
+            totalHargaDalamCart = totalHargaDalamCart+prod.getHarga();
+            cart.getCarts().put(key++, prod);
             int count = cart.getCarts().size();
             System.out.println("tot: "+count);
             model.addAttribute("cartok", count);
@@ -62,14 +65,14 @@ public class OrderController {
             total = total + value.getHarga();
             
         }
-        totalHargaDalamCart = total;
+        totalHargaDalamCart = total ;
         model.addAttribute("cartok", total);
         return "cartok";
     }
     
 
     @RequestMapping(value = "/{productID}/{value}")
-    public String removeCart(@PathVariable Integer productID, Model model, HttpSession session) {
+    public String removeCart(@PathVariable Integer productID, @PathVariable Integer value,Model model, HttpSession totalHarga, HttpSession session) {
 
         try {
             Tblproduct prod = ps.findById(productID);
@@ -77,11 +80,14 @@ public class OrderController {
                 model.addAttribute("errMsg", "Belom ada barang yg dipilih");
                 return "tblproduct";
             }
-            cart.getCarts().remove(no, prod);
+            double tot;
+            totalHargaDalamCart = totalHargaDalamCart - prod.getHarga();
+            cart.getCarts().remove(value, prod);
             cart.getCarts().remove(ps);
             int count = cart.getCarts().size();
-            System.out.println("tot: "+count);
-            model.addAttribute("carts", count);
+//            System.out.println("tot: "+count);
+            //totalHarga.setAttribute("total", totalHargaDalamCart);
+            model.addAttribute("carts", totalHargaDalamCart);
             session.setAttribute("cartsess", cart);
 
         } catch (Exception e) {

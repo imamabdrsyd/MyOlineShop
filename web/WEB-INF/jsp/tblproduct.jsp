@@ -25,11 +25,12 @@
                         </h1>
                     </th>
                 </tr>
-        <c:forEach var="c" items="${tblproduct}">
+        <c:forEach var="e" items="${tblproduct}">
             
             <tr>
-                <td><a href="${c.id}"> ${c.productNama}</a></td> 
-                <td><a href="${pageContext.request.contextPath}/order/add/${c.id}" class="btn btn-primary">Add to cart</a></td>
+                <td>ID : ${e.id}</td>
+                <td>Nama :${e.productNama}</td>
+                <td><a href="${pageContext.request.contextPath}/order/add/${e.id}" class="btn btn-primary">Add to cart</a></td>
             </tr>
         </c:forEach>
         </table>

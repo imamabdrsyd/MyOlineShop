@@ -38,7 +38,7 @@
         </form>
       <ul class="nav navbar-nav navbar-right">
           <li>
-              <a href="${pageContext.request.contextPath}/order/show"><span class="glyphicon glyphicon-camera">Cart </span> ${cart.carts.size()}
+              <a href="${pageContext.request.contextPath}/order/show"><span class="glyphicon glyphicon-briefcase">Cart </span> ${cart.carts.size()}
               </a>
           </li>
         <li><a href="register"><span class="glyphicon glyphicon-user"></span> Daftar</a></li>

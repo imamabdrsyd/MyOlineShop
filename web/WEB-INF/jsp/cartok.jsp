@@ -14,14 +14,14 @@
     </head>
     <body>
         <h1>Hello Cart</h1>
-        <div>Total belanjaan anda: <label>${cartok}</label></div> 
+        <div>Total belanjaan anda: <label>${carts}</label></div> 
         
                 <h3><a href="#">Cart: ${cart.carts.size()}</a></h3>
-                <c:forEach var="c" items="${cart.carts}">
+                <c:forEach var="e" items="${cart.carts}">
                     
-                    <label>Product Name: ${c.value.productNama}</label>
-                    <label>${c.value.harga}</label>
-                <label><a href="${pageContext.request.contextPath}/cart/${c.value.id}/${c.key}">Remove</a></label>
+                    <label>Product Name: ${e.value.productNama}</label>
+                    <label>${e.value.harga}</label>
+                <label><a href="${pageContext.request.contextPath}/order/${e.value.id}/${e.key}">Remove</a></label>
      
                 </c:forEach>
     </body>
