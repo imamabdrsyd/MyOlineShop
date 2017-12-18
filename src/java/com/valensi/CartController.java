@@ -5,44 +5,41 @@
  */
 package com.valensi;
 
+import com.valensi.bean.CartBean;
 import com.valensi.dao.ProductService;
 import com.valensi.entity.Tblproduct;
-import java.util.Map;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.portlet.bind.annotation.RenderMapping;
 
 /**
  *
- * @author user
+ * @author imam
  */
 @Controller
-@RequestMapping("/order")
-public class OrderController {
+@RequestMapping("/cart")
+public class CartController {
 
     @Autowired
     ProductService ps;
 
-    Cart cart = new Cart();
-    int no = 1;
+    CartBean cart = new CartBean();
     double totalHargaDalamCart;
+    int key = 1;
 
     @RequestMapping(value = "/add/{productID}")
-    public String addCart(@PathVariable Integer productID, Model model, HttpSession session) {
-
+    public String addCart(@PathVariable Integer productID, Model model, HttpSession totalHarga, HttpSession session) {
         try {
             Tblproduct prod = ps.findById(productID);
-            if (prod == null) {
-                model.addAttribute("errMsg", "Belom ada barang yg dipilih");
-                return "tblproduct";
-            }
-            cart.getCarts().put(no++, prod);
+            totalHargaDalamCart = totalHargaDalamCart + prod.getHarga();
+
+            cart.getCarts().put(key++, prod);
             int count = cart.getCarts().size();
-            System.out.println("tot: "+count);
+//            System.out.println("tot: "+count);
+            totalHarga.setAttribute("total", totalHargaDalamCart);
             model.addAttribute("cartok", count);
             session.setAttribute("cart", cart);
 
@@ -51,38 +48,29 @@ public class OrderController {
         }
         return "redirect:/product/all";
     }
-    
-    
+
     @RequestMapping(value = "/show")
     public String showCart(Model model, HttpSession session) {
-        Map<Integer, Tblproduct> cartsa = cart.getCarts();
-        Double total = 0.0;
-        for (Map.Entry<Integer, Tblproduct> entry : cartsa.entrySet()) {
-            Tblproduct value = entry.getValue();
-            total = total + value.getHarga();
-            
-        }
-        totalHargaDalamCart = total;
-        model.addAttribute("cartok", total);
-        return "cartok";
+        return "carts";
     }
-    
 
     @RequestMapping(value = "/{productID}/{value}")
-    public String removeCart(@PathVariable Integer productID, Model model, HttpSession session) {
+    public String removeCart(@PathVariable Integer productID, @PathVariable Integer value, HttpSession totalHarga, Model model, HttpSession session) {
 
         try {
             Tblproduct prod = ps.findById(productID);
             if (prod == null) {
                 model.addAttribute("errMsg", "Belom ada barang yg dipilih");
-                return "tblproduct";
+                return "product";
             }
-            cart.getCarts().remove(no, prod);
-            cart.getCarts().remove(ps);
+            totalHargaDalamCart = totalHargaDalamCart - prod.getHarga();
+            cart.getCarts().remove(value, prod);
+//            cart.getCarts().remove(ps);
             int count = cart.getCarts().size();
-            System.out.println("tot: "+count);
-            model.addAttribute("carts", count);
-            session.setAttribute("cartsess", cart);
+//            System.out.println("tot: "+count);
+            totalHarga.setAttribute("total", totalHargaDalamCart);
+            model.addAttribute("cartok", count);
+            session.setAttribute("cart", cart);
 
         } catch (Exception e) {
             e.printStackTrace();

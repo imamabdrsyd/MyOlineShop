@@ -12,17 +12,29 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Product Page</title>
     </head>
-    <body><jsp:include page="header.jsp"/>  
-        <h1>Product</h1><br/>
+    <body>
+        
+        <jsp:include page="header.jsp"/> 
+        <table class="table table-bordered">
+                <tr>
+                    <th><h1>Product</h1></th>
+                    
+                    <th>
+                        <h1>
+                            <a href="${pageContext.request.contextPath}/order/show">Cart: ${cart.carts.size()}</a>
+                        </h1>
+                    </th>
+                </tr>
         <c:forEach var="c" items="${tblproduct}">
             
-            <p>
-                <a href="${c.id}"> ${c.productNama}</a> 
-                <a href="${pageContext.request.contextPath}/order/add/${c.id}">Add to cart</a>
-            </p>
+            <tr>
+                <td><a href="${c.id}"> ${c.productNama}</a></td> 
+                <td><a href="${pageContext.request.contextPath}/order/add/${c.id}" class="btn btn-primary">Add to cart</a></td>
+            </tr>
         </c:forEach>
-            <div>
+        </table>
+            <!--div>
                 <img src="https://brain-images-ssl.cdn.dixons.com/4/0/10152504/u_10152504.jpg" alt="yoms">
-            </div>
+            </div-->
     </body>
 </html>
