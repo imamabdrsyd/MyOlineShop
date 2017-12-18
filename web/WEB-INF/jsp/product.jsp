@@ -8,12 +8,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <jsp:include page="navbar.jsp"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Product Page</title>
     </head>
-    <jsp:include page="navbar.jsp"/>
+    
     <body>
+        <div>
+            <img src="https://brain-images-ssl.cdn.dixons.com/4/0/10152504/u_10152504.jpg" alt="asdas">
+        </div>
         <h1>${product.productNama}</h1>
         <p>
             Harga: ${product.harga} IDR
