@@ -30,7 +30,7 @@
             
             <tr>
                 <td>${e.id}</td>
-                <td>${e.productNama}</td>
+                <td><a href="${pageContext.request.contextPath}/product/${e.id}">${e.productNama}</a></td>
                 <td><a href="${pageContext.request.contextPath}/order/add/${e.id}" class="btn btn-primary">Add to cart</a></td>
             </tr>
         </c:forEach>

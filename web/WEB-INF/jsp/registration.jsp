@@ -1,7 +1,7 @@
 <%-- 
     Document   : registration
     Created on : Dec 13, 2017, 10:16:10 AM
-    Author     : user
+    Author     : imam
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -11,8 +11,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
         <link href="<c:url value='/resources/css/bootstrap.css'/>" rel="stylesheet">
+        <link href="<c:url value='/resources/css/login.css'/>" rel="stylesheet">
         <script src="<c:url value='/resources/js/bootstraps.js'/>"  ></script>
         <title>Form Registrasi </title>
+        <jsp:include page="navbar.jsp"/>
     </head>
     <body>
 
@@ -38,10 +40,13 @@
                 <form:input path="email" cssClass="form-control"/> <br/>
                 <form:label path="address">Alamat</form:label>
                 <form:textarea path="address" cssClass="form-control"/><br/>
-                <form:button name="submitButton" value="Submit" class="btn btn-primary" cssClass="form-control">Submit</form:button>
+                <form:button name="submitButton" value="Submit" class="btn btn-info btn-block login" cssClass="form-control">Submit</form:button>
             </form:form>
             </div>
         </div> 
-        </div>  
+        </div> 
+        
+
+        
     </body>
 </html>

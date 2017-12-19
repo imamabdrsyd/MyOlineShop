@@ -1,7 +1,7 @@
 <%-- 
     Document   : welcome
     Created on : Dec 13, 2017, 9:53:34 AM
-    Author     : user
+    Author     : imam
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -18,16 +18,16 @@
         
     </head>
     <body>
-        <div class="container" style="padding: 50px;" align="center">
-        <div class="card" style="width: 20rem;">
+        <div class="container" style="padding: 10px;" align="center">
+        <div class="card" style="width: 50rem;">
             <div class="card-body">
                 <h2 class="card-title">Welcome</h2>
                 <p class="card-text">To The Biggest Shopping Network</p>
                 <a href="register" class="btn btn-primary">Register</a>
-                <b></b>
                 <a href="${pageContext.request.contextPath}/login" class="btn btn-danger">Login</a>
             </div>
         </div>
         </div>
+            
     </body>
 </html>

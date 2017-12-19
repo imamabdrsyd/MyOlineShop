@@ -14,11 +14,9 @@
     </head>
     <body>
         <jsp:include page="navbar.jsp"/> 
-        <a href="${pageContext.request.contextPath}/order/show"
-           align="center">Cart: ${cart.carts.size()}</a>
-        <h1 class="container">Hello Cart</h1>
+        <h1 class="container">Keranjang Anda</h1>
         <div class="container">
-            Total belanjaan anda: <label>${carts}</label>
+            Total belanjaan anda: <label>Rp ${carts}</label>
         </div> 
         <b></b>
         
@@ -28,7 +26,7 @@
                     <th>#</th>
                         <th>Nama Produk</th>
                         <th>Harga</th>
-                        <th>Hapus</th>
+                        <th>Total dalam Keranjang: ${cart.carts.size()}</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,7 +35,12 @@
                         <td>${e.key}</td>
                         <td>${e.value.productNama}</td>
                         <td>${e.value.harga}</td>
-                        <td><a href="${pageContext.request.contextPath}/order/${e.value.id}/${e.key}">Remove</a></td>
+                    <td>
+                        <a href="${pageContext.request.contextPath}/order/${e.value.id}/${e.key}">
+                            <style>a { color: red;}</style>Remove
+                        </a>
+                    </td>
+                        
                 </tr>
                     </c:forEach>
                 </tbody>

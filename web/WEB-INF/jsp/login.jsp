@@ -9,29 +9,32 @@
 <!DOCTYPE html>
 <html>
     <head>
-
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login Page</title>
+        <jsp:include page="navbar.jsp"/>
         <link href="<c:url value='/resources/css/bootstrap.css'/>" rel="stylesheet">
+        <link href="<c:url value='/resources/css/login.css'/>" rel="stylesheet">
     </head>
     <body>
-        <div class="container" style="padding: 50px;">
-        <div class="card" style="width: 20rem;">
+        <div class="container" style="padding: 5px;">
+        <div class="card" style="width: 20rem;" align="center">
             <div class="card-body">
-                <h2 class="card-title">Please login!</h2>
                 <p class="card-text">
                  <b>${errMsg}</b>
                  <form:form action="${pageContext.request.contextPath}/login/check" modelAttribute="loginBean" method="POST" >
-                     <form:label path="username">Username</form:label>
-                     <form:input path="username" cssClass="form-control"/> <br/>
-                     <form:label path="password">Password</form:label>
-                     <form:password path="password" cssClass="form-control"/><br/>
-                <form:button name="submitButton" value="Submit" class="btn btn-primary" cssClass="form-control">Submit</form:button>           
+                 <div class="container">
+                 <div class="login-container">    
+                 <div id="output"></div>
+                     <div class="avatar"></div>
+                     <form:input path="username" placeholder="username" cssClass="form-control"/> <br/>
+                     <form:password path="password" placeholder="password" cssClass="form-control"/><br/>
+                <form:button name="submitButton" value="Submit" class="btn btn-info btn-block login" cssClass="form-control">Submit</form:button>           
                  </form:form>
+                </div>
+                     </div>
                 </p>
             </div>
         </div>
-        </div>
-        
+        </div> 
     </body>
 </html>
