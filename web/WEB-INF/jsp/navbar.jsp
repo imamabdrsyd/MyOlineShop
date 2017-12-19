@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse" >
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -38,7 +38,9 @@
         </form>
       <ul class="nav navbar-nav navbar-right">
           <li>
-              <a href="${pageContext.request.contextPath}/order/show"><span class="glyphicon glyphicon-briefcase">Cart </span> ${cart.carts.size()}
+              <a href="${pageContext.request.contextPath}/order/show">
+                  Cart <span class="badge badge-light">${cart.carts.size()}</span>
+                   
               </a>
           </li>
         <li><a href="register"><span class="glyphicon glyphicon-user"></span> Daftar</a></li>
