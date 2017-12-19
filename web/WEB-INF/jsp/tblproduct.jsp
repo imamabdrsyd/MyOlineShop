@@ -1,7 +1,7 @@
 <%-- 
     Document   : customer
     Created on : Dec 13, 2017, 2:50:05 PM
-    Author     : user
+    Author     : imam
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -17,6 +17,7 @@
         <jsp:include page="header.jsp"/> 
         <table class="table table-bordered">
                 <tr>
+                    <th><h1>#</h1></th>
                     <th><h1>Product</h1></th>
                     
                     <th>
@@ -28,8 +29,8 @@
         <c:forEach var="e" items="${tblproduct}">
             
             <tr>
-                <td>ID : ${e.id}</td>
-                <td>Nama :${e.productNama}</td>
+                <td>${e.id}</td>
+                <td>${e.productNama}</td>
                 <td><a href="${pageContext.request.contextPath}/order/add/${e.id}" class="btn btn-primary">Add to cart</a></td>
             </tr>
         </c:forEach>
