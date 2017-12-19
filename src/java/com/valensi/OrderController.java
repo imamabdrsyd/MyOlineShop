@@ -62,11 +62,10 @@ public class OrderController {
         Double total = 0.0;
         for (Map.Entry<Integer, Tblproduct> entry : cartsa.entrySet()) {
             Tblproduct value = entry.getValue();
-            total = total + value.getHarga();
-            
+            total = total + value.getHarga();           
         }
         totalHargaDalamCart = total ;
-        model.addAttribute("cartok", total);
+        model.addAttribute("carts", total);
         return "cartok";
     }
     
@@ -87,8 +86,8 @@ public class OrderController {
             int count = cart.getCarts().size();
 //            System.out.println("tot: "+count);
             //totalHarga.setAttribute("total", totalHargaDalamCart);
-            model.addAttribute("carts", totalHargaDalamCart);
-            session.setAttribute("cartsess", cart);
+           model.addAttribute("carts", totalHargaDalamCart);
+          session.setAttribute("cartsess", cart);
 
         } catch (Exception e) {
             e.printStackTrace();
