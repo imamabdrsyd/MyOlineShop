@@ -9,8 +9,17 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <style>
+        .badge .badge-success {
+            color: #337ab7;
+            background-color: #fff;
+          }
+    </style>
 
 <nav class="navbar navbar-inverse" >
+    <a class="navbar-brand" href="#">
+    <img src="https://cdn.shopify.com/s/files/1/2351/5779/t/19/assets/sticky_logo.png?7745581531723433983" width="30" height="30" alt="">
+  </a>
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -39,7 +48,7 @@
       <ul class="nav navbar-nav navbar-right">
           <li>
               <a href="${pageContext.request.contextPath}/order/show">
-                  Cart <span class="badge badge-light">${cart.carts.size()}</span>
+                  Cart <span class="badge badge-success">${cart.carts.size()}</span>
                    
               </a>
           </li>

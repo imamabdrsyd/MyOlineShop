@@ -18,8 +18,9 @@
         
     </head>
     <body>
-        <div class="container" style="padding: 10px;" align="center">
-        <div class="card" style="width: 50rem;">
+        <div class="card text-center" style="padding: 10px;" align="center">
+        <div class="card-header">
+        </div>
             <div class="card-body">
                 <h2 class="card-title">Welcome</h2>
                 <p class="card-text">To The Biggest Shopping Network</p>
@@ -27,7 +28,6 @@
                 <a href="${pageContext.request.contextPath}/login" class="btn btn-danger">Login</a>
             </div>
         </div>
-        </div>
-            
     </body>
+    
 </html>

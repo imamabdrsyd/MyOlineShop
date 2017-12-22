@@ -1,5 +1,6 @@
+
 <div class = "jumbotron"
      align = "center">
-    <h1> LAZADUT<span class="badge badge-secondary">New</span></h1>
+    <h1><span class="badge badge-pill badge-success">New</span>LAZADUT</h1>
     
 </div>
